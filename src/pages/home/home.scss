@@ -1,3 +1,42 @@
 page-home {
+    .text {
+        padding:200px 0 0 0;
+        font-weight: 10px;
+        font-family: "Gill Sans", sans-serif; 
+    }
+    .button {
+        color: #062F4F;
+        background: #CAEBF2;
+        font-size: 20px;
+        height:50px;
+        width:180px;
+        cursor:pointer;
+        // border: 2px solid #627B95;
+        // border-radius: 5px;
+
+    }
+
+    .button:hover{
+        background-color: #627B95;
+        color: white;
+    }
+
+    .image{
+        height:50px;
+        width:50px;
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+    }
+
+    .smalltext {
+        font-weight: 5px;
+        font-family: "Gill Sans", sans-serif; 
+        color: #CAEBF2;
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+    }
+
 
 }
