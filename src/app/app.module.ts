@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { CommitteeLoginPage } from '../pages/committee-login/committee-login';
 import { QuestionsPage } from '../pages/questions/questions';
 import { SubmitsuccessPage } from '../pages/submitsuccess/submitsuccess';
+import { CommitteeOptionsPage } from '../pages/committee-options/committee-options';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SubmitsuccessPage } from '../pages/submitsuccess/submitsuccess';
     HomePage,
     CommitteeLoginPage,
     QuestionsPage,
-    SubmitsuccessPage
+    SubmitsuccessPage,
+    CommitteeOptionsPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import { SubmitsuccessPage } from '../pages/submitsuccess/submitsuccess';
     HomePage,
     CommitteeLoginPage,
     QuestionsPage,
-    SubmitsuccessPage
+    SubmitsuccessPage,
+    CommitteeOptionsPage
   ],
   providers: [
     StatusBar,

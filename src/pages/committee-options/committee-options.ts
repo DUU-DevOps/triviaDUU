@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { QuestionsPage } from '../questions/questions';
-import { CommitteeOptionsPage } from '../committee-options/committee-options';
 
 /**
- * Generated class for the CommitteeLoginPage page.
+ * Generated class for the CommitteeOptionsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,22 +11,22 @@ import { CommitteeOptionsPage } from '../committee-options/committee-options';
 
 @IonicPage()
 @Component({
-  selector: 'page-committee-login',
-  templateUrl: 'committee-login.html',
+  selector: 'page-committee-options',
+  templateUrl: 'committee-options.html',
 })
-export class CommitteeLoginPage {
+export class CommitteeOptionsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CommitteeLoginPage');
+    console.log('ionViewDidLoad CommitteeOptionsPage');
+  }
+  goToQuestions() {
+    this.navCtrl.push(QuestionsPage);
   }
 
-  goToOptions() {
-    this.navCtrl.push(CommitteeOptionsPage);
+  goToGrading() {
+    
   }
-
-
-
 }
