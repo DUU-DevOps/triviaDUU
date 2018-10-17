@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FormBuilder, FormArray, FormGroup, Validators } from '@angular/forms';
+import { SubmitsuccessPage } from '../submitsuccess/submitsuccess';
 
 /**
  * Generated class for the QuestionsPage page.
@@ -14,8 +16,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'questions.html',
 })
 export class QuestionsPage {
-  questions = {}
-  numbers = [1,2,3,4,5,6,7,8,9,10]
+  questions = {};
+  answers = {};
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -26,6 +29,10 @@ export class QuestionsPage {
 
   logForm() {
     console.log(this.questions)
+  }
+
+  goToSuccess() {
+    this.navCtrl.push(SubmitsuccessPage);
   }
 
 }
