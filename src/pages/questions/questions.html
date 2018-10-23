@@ -15,7 +15,9 @@
   
   
   <ion-content padding style="background-color:#062F4F; font-family: Gill Sans, sans-serif">
-    <form (ngSubmit)="logForm()">
+    <form>
+      <div style = "color: #CAEBF2; font-family: Gill Sans, sans-serif; font-size: 20px">Date of Trivia Night</div>
+      <div style = "color: #CAEBF2; font-family: Gill Sans, sans-serif; font-size: 14px">Please enter as Month-Day-Year (10-24-18).</div>
       <ion-item>
         <ion-label floating>Date of Trivia</ion-label>
         <ion-input type="text" [(ngModel)]="date" name="date"></ion-input>
@@ -25,110 +27,110 @@
       <div style = "color: #CAEBF2; font-family: Gill Sans, sans-serif; font-size: 14px">Please enter all accepted answers with comma separation.</div>
       <ion-item>
         <ion-label floating>Question 1</ion-label>
-        <ion-input [(ngModel)]="questiononeroundone" name="questiononeroundone"></ion-input>
+        <ion-input type="text" [(ngModel)]="questiononeroundone" name="questiononeroundone"></ion-input>
       </ion-item>
         
       <ion-item>
         <ion-label floating>Answer 1</ion-label>
-        <ion-input [(ngModel)]="answeroneroundone" name="answeroneroundone"></ion-input>
+        <ion-input type="text" [(ngModel)]="answeroneroundone" name="answeroneroundone"></ion-input>
       </ion-item>
   
       <br>
       
       <ion-item>
         <ion-label floating>Question 2</ion-label>
-        <ion-input [(ngModel)]="questiontworoundone" name="questiontworoundone"></ion-input>
+        <ion-input type="text" [(ngModel)]="questiontworoundone" name="questiontworoundone"></ion-input>
       </ion-item>
   
       <ion-item>
         <ion-label floating>Answer 2</ion-label>
-        <ion-input [(ngModel)]="answertworoundone" name="answertworoundone"></ion-input>
+        <ion-input type="text" [(ngModel)]="answertworoundone" name="answertworoundone"></ion-input>
       </ion-item>
   
       <br>
   
       <ion-item>
         <ion-label floating>Question 3</ion-label>
-        <ion-input [(ngModel)]="questionthreeroundone" name="questionthreeroundone"></ion-input>
+        <ion-input type="text" [(ngModel)]="questionthreeroundone" name="questionthreeroundone"></ion-input>
       </ion-item>
   
       <ion-item>
           <ion-label floating>Answer 3</ion-label>
-          <ion-input [(ngModel)]="answerthreeroundone" name="answerthreeroundone"></ion-input>
+          <ion-input type="text" [(ngModel)]="answerthreeroundone" name="answerthreeroundone"></ion-input>
         </ion-item>
         <br>
   
       <ion-item>
         <ion-label floating>Question 4</ion-label>
-        <ion-input [(ngModel)]="questionfourroundone" name="questionfourroundone"></ion-input>
+        <ion-input type="text" [(ngModel)]="questionfourroundone" name="questionfourroundone"></ion-input>
       </ion-item>
   
       <ion-item>
           <ion-label floating>Answer 4</ion-label>
-          <ion-input [(ngModel)]="answerfourroundone" name="answerfourroundone"></ion-input>
+          <ion-input type="text" [(ngModel)]="answerfourroundone" name="answerfourroundone"></ion-input>
         </ion-item>
         <br>
   
       <ion-item>
         <ion-label floating>Question 5</ion-label>
-        <ion-input [(ngModel)]="questionfiveroundone" name="questionfiveroundone"></ion-input>
+        <ion-input type="text" [(ngModel)]="questionfiveroundone" name="questionfiveroundone"></ion-input>
       </ion-item>
   
       <ion-item>
           <ion-label floating>Answer 5</ion-label>
-          <ion-input [(ngModel)]="answerfiveroundone" name="answerfiveroundone"></ion-input>
+          <ion-input type="text" [(ngModel)]="answerfiveroundone" name="answerfiveroundone"></ion-input>
       </ion-item>
       <br>
   
       <ion-item>
         <ion-label floating>Question 6</ion-label>
-        <ion-input [(ngModel)]="questionsixroundone" name="questionsixroundone"></ion-input>
+        <ion-input type="text" [(ngModel)]="questionsixroundone" name="questionsixroundone"></ion-input>
       </ion-item>
   
       <ion-item>
           <ion-label floating>Answer 6</ion-label>
-          <ion-input [(ngModel)]="answersixroundone" name="answersixroundone"></ion-input>
+          <ion-input type="text" [(ngModel)]="answersixroundone" name="answersixroundone"></ion-input>
       </ion-item>
       <br>
   
       <ion-item>
         <ion-label floating>Question 7</ion-label>
-        <ion-input [(ngModel)]="questionsevenroundone" name="questionsevenroundone"></ion-input>
+        <ion-input type="text" [(ngModel)]="questionsevenroundone" name="questionsevenroundone"></ion-input>
       </ion-item>
   
       <ion-item>
           <ion-label floating>Answer 7</ion-label>
-          <ion-input [(ngModel)]="answersevenroundone" name="answersevenroundone"></ion-input>
+          <ion-input type="text" [(ngModel)]="answersevenroundone" name="answersevenroundone"></ion-input>
       </ion-item>
       <br>
   
       <ion-item>
         <ion-label floating>Question 8</ion-label>
-        <ion-input [(ngModel)]="questioneightroundone" name="questioneightroundone"></ion-input>
+        <ion-input type="text" [(ngModel)]="questioneightroundone" name="questioneightroundone"></ion-input>
       </ion-item>
       <ion-item>
           <ion-label floating>Answer 8</ion-label>
-          <ion-input [(ngModel)]="answereightroundone" name="answereightroundone"></ion-input>
+          <ion-input type="text" [(ngModel)]="answereightroundone" name="answereightroundone"></ion-input>
       </ion-item>
       <br>
   
       <ion-item>
         <ion-label floating>Question 9</ion-label>
-        <ion-input [(ngModel)]="questionnineroundone" name="questionnineroundone"></ion-input>
+        <ion-input type="text" [(ngModel)]="questionnineroundone" name="questionnineroundone"></ion-input>
       </ion-item>
       <ion-item>
           <ion-label floating>Answer 9</ion-label>
-          <ion-input [(ngModel)]="answernineroundone" name="answernineroundone"></ion-input>
+          <ion-input type="text" [(ngModel)]="answernineroundone" name="answernineroundone"></ion-input>
       </ion-item>
       <br>
   
       <ion-item>
         <ion-label floating>Question 10</ion-label>
-        <ion-input [(ngModel)]="questiontenroundone" name="questiontenroundone"></ion-input>
+        <ion-input type="text" [(ngModel)]="questiontenroundone" name="questiontenroundone"></ion-input>
       </ion-item>
       <ion-item>
           <ion-label floating>Answer 10</ion-label>
-          <ion-input [(ngModel)]="answertenroundone" name="answertenroundone"></ion-input>
+          <ion-input type="text" [(ngModel)]="answertenroundone" name="answertenroundone"></ion-input>
       </ion-item>
       <br>
 
@@ -138,110 +140,110 @@
 <div style = "color: #CAEBF2; font-family: Gill Sans, sans-serif; font-size: 14px">Please enter all accepted answers with comma separation.</div>
 <ion-item>
     <ion-label floating>Question 1</ion-label>
-    <ion-input [(ngModel)]="questiononeroundtwo" name="questiononeroundtwo"></ion-input>
+    <ion-input type="text" [(ngModel)]="questiononeroundtwo" name="questiononeroundtwo"></ion-input>
   </ion-item>
     
   <ion-item>
     <ion-label floating>Answer 1</ion-label>
-    <ion-input [(ngModel)]="answertworoundtwo" name="answertworoundtwo"></ion-input>
+    <ion-input type="text" [(ngModel)]="answertworoundtwo" name="answertworoundtwo"></ion-input>
   </ion-item>
 
   <br>
   
   <ion-item>
     <ion-label floating>Question 2</ion-label>
-    <ion-input [(ngModel)]="questiontworoundtwo" name="questiontworoundtwo"></ion-input>
+    <ion-input type="text" [(ngModel)]="questiontworoundtwo" name="questiontworoundtwo"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label floating>Answer 2</ion-label>
-    <ion-input [(ngModel)]="answertworoundtwo" name="answertworoundtwo"></ion-input>
+    <ion-input type="text" [(ngModel)]="answertworoundtwo" name="answertworoundtwo"></ion-input>
   </ion-item>
 
   <br>
 
   <ion-item>
     <ion-label floating>Question 3</ion-label>
-    <ion-input [(ngModel)]="questionthreeroundtwo" name="questionthreeroundtwo"></ion-input>
+    <ion-input type="text" [(ngModel)]="questionthreeroundtwo" name="questionthreeroundtwo"></ion-input>
   </ion-item>
 
   <ion-item>
       <ion-label floating>Answer 3</ion-label>
-      <ion-input [(ngModel)]="answerthreeroundtwo" name="answerthreeroundtwo"></ion-input>
+      <ion-input type="text" [(ngModel)]="answerthreeroundtwo" name="answerthreeroundtwo"></ion-input>
     </ion-item>
     <br>
 
   <ion-item>
     <ion-label floating>Question 4</ion-label>
-    <ion-input [(ngModel)]="questionfourroundtwo" name="questionfourroundtwo"></ion-input>
+    <ion-input type="text" [(ngModel)]="questionfourroundtwo" name="questionfourroundtwo"></ion-input>
   </ion-item>
 
   <ion-item>
       <ion-label floating>Answer 4</ion-label>
-      <ion-input [(ngModel)]="answerfourroundtwo" name="answerfourroundtwo"></ion-input>
+      <ion-input type="text" [(ngModel)]="answerfourroundtwo" name="answerfourroundtwo"></ion-input>
     </ion-item>
     <br>
 
   <ion-item>
     <ion-label floating>Question 5</ion-label>
-    <ion-input [(ngModel)]="questionfiveroundtwo" name="questionfiveroundtwo"></ion-input>
+    <ion-input type="text" [(ngModel)]="questionfiveroundtwo" name="questionfiveroundtwo"></ion-input>
   </ion-item>
 
   <ion-item>
       <ion-label floating>Answer 5</ion-label>
-      <ion-input [(ngModel)]="answerfiveroundtwo" name="answerfiveroundtwo"></ion-input>
+      <ion-input type="text" [(ngModel)]="answerfiveroundtwo" name="answerfiveroundtwo"></ion-input>
   </ion-item>
   <br>
 
   <ion-item>
     <ion-label floating>Question 6</ion-label>
-    <ion-input [(ngModel)]="questionsixroundtwo" name="questionsixroundtwo"></ion-input>
+    <ion-input type="text" [(ngModel)]="questionsixroundtwo" name="questionsixroundtwo"></ion-input>
   </ion-item>
 
   <ion-item>
       <ion-label floating>Answer 6</ion-label>
-      <ion-input [(ngModel)]="answersixroundtwo" name="answersixroundtwo"></ion-input>
+      <ion-input type="text" [(ngModel)]="answersixroundtwo" name="answersixroundtwo"></ion-input>
   </ion-item>
   <br>
 
   <ion-item>
     <ion-label floating>Question 7</ion-label>
-    <ion-input [(ngModel)]="questionsevenroundtwo" name="questionsevenroundtwo"></ion-input>
+    <ion-input type="text" [(ngModel)]="questionsevenroundtwo" name="questionsevenroundtwo"></ion-input>
   </ion-item>
 
   <ion-item>
       <ion-label floating>Answer 7</ion-label>
-      <ion-input [(ngModel)]="answersevenroundtwo" name="answersevenroundtwo"></ion-input>
+      <ion-input type="text" [(ngModel)]="answersevenroundtwo" name="answersevenroundtwo"></ion-input>
   </ion-item>
   <br>
 
   <ion-item>
     <ion-label floating>Question 8</ion-label>
-    <ion-input [(ngModel)]="questitwoightroundtwo" name="questitwoightroundtwo"></ion-input>
+    <ion-input type="text" [(ngModel)]="questitwoightroundtwo" name="questitwoightroundtwo"></ion-input>
   </ion-item>
   <ion-item>
       <ion-label floating>Answer 8</ion-label>
-      <ion-input [(ngModel)]="answereightroundtwo" name="answereightroundtwo"></ion-input>
+      <ion-input type="text" [(ngModel)]="answereightroundtwo" name="answereightroundtwo"></ion-input>
   </ion-item>
   <br>
 
   <ion-item>
     <ion-label floating>Question 9</ion-label>
-    <ion-input [(ngModel)]="questionnineroundtwo" name="questionnineroundtwo"></ion-input>
+    <ion-input type="text" [(ngModel)]="questionnineroundtwo" name="questionnineroundtwo"></ion-input>
   </ion-item>
   <ion-item>
       <ion-label floating>Answer 9</ion-label>
-      <ion-input [(ngModel)]="answernineroundtwo" name="answernineroundtwo"></ion-input>
+      <ion-input type="text" [(ngModel)]="answernineroundtwo" name="answernineroundtwo"></ion-input>
   </ion-item>
   <br>
 
   <ion-item>
     <ion-label floating>Question 10</ion-label>
-    <ion-input [(ngModel)]="questiontenroundtwo" name="questiontenroundtwo"></ion-input>
+    <ion-input type="text" [(ngModel)]="questiontenroundtwo" name="questiontenroundtwo"></ion-input>
   </ion-item>
   <ion-item>
       <ion-label floating>Answer 10</ion-label>
-      <ion-input [(ngModel)]="answertenroundtwo" name="answertenroundtwo"></ion-input>
+      <ion-input type="text" [(ngModel)]="answertenroundtwo" name="answertenroundtwo"></ion-input>
   </ion-item>
   <br>
 
@@ -251,110 +253,110 @@
   <div style = "color: #CAEBF2; font-family: Gill Sans, sans-serif; font-size: 14px">Please enter all accepted answers with comma separation.</div>
   <ion-item>
       <ion-label floating>Question 1</ion-label>
-      <ion-input [(ngModel)]="questiononeroundthree" name="questiononeroundthree"></ion-input>
+      <ion-input type="text" [(ngModel)]="questiononeroundthree" name="questiononeroundthree"></ion-input>
     </ion-item>
       
     <ion-item>
       <ion-label floating>Answer 1</ion-label>
-      <ion-input [(ngModel)]="answertworoundthree" name="answertworoundthree"></ion-input>
+      <ion-input type="text" [(ngModel)]="answertworoundthree" name="answertworoundthree"></ion-input>
     </ion-item>
 
     <br>
     
     <ion-item>
       <ion-label floating>Question 2</ion-label>
-      <ion-input [(ngModel)]="questionthreeroundthree" name="questionthreeroundthree"></ion-input>
+      <ion-input type="text" [(ngModel)]="questionthreeroundthree" name="questionthreeroundthree"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Answer 2</ion-label>
-      <ion-input [(ngModel)]="answerthreeroundthree" name="answerthreeroundthree"></ion-input>
+      <ion-input type="text" [(ngModel)]="answerthreeroundthree" name="answerthreeroundthree"></ion-input>
     </ion-item>
 
     <br>
 
     <ion-item>
       <ion-label floating>Question 3</ion-label>
-      <ion-input [(ngModel)]="questionthreeroundthree" name="questionthreeroundthree"></ion-input>
+      <ion-input type="text" [(ngModel)]="questionthreeroundthree" name="questionthreeroundthree"></ion-input>
     </ion-item>
 
     <ion-item>
         <ion-label floating>Answer 3</ion-label>
-        <ion-input [(ngModel)]="answerthreeroundthree" name="answerthreeroundthree"></ion-input>
+        <ion-input type="text" [(ngModel)]="answerthreeroundthree" name="answerthreeroundthree"></ion-input>
       </ion-item>
       <br>
 
     <ion-item>
       <ion-label floating>Question 4</ion-label>
-      <ion-input [(ngModel)]="questionfourroundthree" name="questionfourroundthree"></ion-input>
+      <ion-input type="text" [(ngModel)]="questionfourroundthree" name="questionfourroundthree"></ion-input>
     </ion-item>
 
     <ion-item>
         <ion-label floating>Answer 4</ion-label>
-        <ion-input [(ngModel)]="answerfourroundthree" name="answerfourroundthree"></ion-input>
+        <ion-input type="text" [(ngModel)]="answerfourroundthree" name="answerfourroundthree"></ion-input>
       </ion-item>
       <br>
 
     <ion-item>
       <ion-label floating>Question 5</ion-label>
-      <ion-input [(ngModel)]="questionfiveroundthree" name="questionfiveroundthree"></ion-input>
+      <ion-input type="text" [(ngModel)]="questionfiveroundthree" name="questionfiveroundthree"></ion-input>
     </ion-item>
 
     <ion-item>
         <ion-label floating>Answer 5</ion-label>
-        <ion-input [(ngModel)]="answerfiveroundthree" name="answerfiveroundthree"></ion-input>
+        <ion-input type="text" [(ngModel)]="answerfiveroundthree" name="answerfiveroundthree"></ion-input>
     </ion-item>
     <br>
 
     <ion-item>
       <ion-label floating>Question 6</ion-label>
-      <ion-input [(ngModel)]="questionsixroundthree" name="questionsixroundthree"></ion-input>
+      <ion-input type="text" [(ngModel)]="questionsixroundthree" name="questionsixroundthree"></ion-input>
     </ion-item>
 
     <ion-item>
         <ion-label floating>Answer 6</ion-label>
-        <ion-input [(ngModel)]="answersixroundthree" name="answersixroundthree"></ion-input>
+        <ion-input type="text" [(ngModel)]="answersixroundthree" name="answersixroundthree"></ion-input>
     </ion-item>
     <br>
 
     <ion-item>
       <ion-label floating>Question 7</ion-label>
-      <ion-input [(ngModel)]="questionsevenroundthree" name="questionsevenroundthree"></ion-input>
+      <ion-input type="text" [(ngModel)]="questionsevenroundthree" name="questionsevenroundthree"></ion-input>
     </ion-item>
 
     <ion-item>
         <ion-label floating>Answer 7</ion-label>
-        <ion-input [(ngModel)]="answersevenroundthree" name="answersevenroundthree"></ion-input>
+        <ion-input type="text" [(ngModel)]="answersevenroundthree" name="answersevenroundthree"></ion-input>
     </ion-item>
     <br>
 
     <ion-item>
       <ion-label floating>Question 8</ion-label>
-      <ion-input [(ngModel)]="questithreeightroundthree" name="questithreeightroundthree"></ion-input>
+      <ion-input type="text" [(ngModel)]="questithreeightroundthree" name="questithreeightroundthree"></ion-input>
     </ion-item>
     <ion-item>
         <ion-label floating>Answer 8</ion-label>
-        <ion-input [(ngModel)]="answereightroundthree" name="answereightroundthree"></ion-input>
+        <ion-input type="text" [(ngModel)]="answereightroundthree" name="answereightroundthree"></ion-input>
     </ion-item>
     <br>
 
     <ion-item>
       <ion-label floating>Question 9</ion-label>
-      <ion-input [(ngModel)]="questionnineroundthree" name="questionnineroundthree"></ion-input>
+      <ion-input type="text" [(ngModel)]="questionnineroundthree" name="questionnineroundthree"></ion-input>
     </ion-item>
     <ion-item>
         <ion-label floating>Answer 9</ion-label>
-        <ion-input [(ngModel)]="answernineroundthree" name="answernineroundthree"></ion-input>
+        <ion-input type="text" [(ngModel)]="answernineroundthree" name="answernineroundthree"></ion-input>
     </ion-item>
     <br>
 
     <ion-item>
       <ion-label floating>Question 10</ion-label>
-      <ion-input [(ngModel)]="questiontenroundthree" name="questiontenroundthree"></ion-input>
+      <ion-input type="text" [(ngModel)]="questiontenroundthree" name="questiontenroundthree"></ion-input>
     </ion-item>
     <ion-item>
         <ion-label floating>Answer 10</ion-label>
-        <ion-input [(ngModel)]="answertenroundthree" name="answertenroundthree"></ion-input>
+        <ion-input type="text" [(ngModel)]="answertenroundthree" name="answertenroundthree"></ion-input>
     </ion-item>
     <br>
 

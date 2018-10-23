@@ -16,6 +16,8 @@
 <ion-content padding style="background-color:#062F4F; color: #CAEBF2;font-family: Gill Sans, sans-serif">
 
   <div class = "center" style="text-align: center">
+    <ion-input class = "border" type="email" placeholder="Email" [(ngModel)]="email"></ion-input>
+    <br>
     <ion-input class = "border" type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
     <br>
     <button ion-button class = "button" (click)="goToOptions()">Login</button>
