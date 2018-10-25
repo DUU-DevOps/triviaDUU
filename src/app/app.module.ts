@@ -11,6 +11,12 @@ import { QuestionsPage } from '../pages/questions/questions';
 import { SubmitsuccessPage } from '../pages/submitsuccess/submitsuccess';
 import { CommitteeOptionsPage } from '../pages/committee-options/committee-options';
 
+import { TeamCreatePage } from '../pages/team-create/team-create';
+import { PlayerQuestionsPage } from '../pages/player-questions/player-questions';
+import { LetsplayPage } from '../pages/letsplay/letsplay';
+import { GameOverPage } from '../pages/game-over/game-over';
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -18,7 +24,12 @@ import { CommitteeOptionsPage } from '../pages/committee-options/committee-optio
     CommitteeLoginPage,
     QuestionsPage,
     SubmitsuccessPage,
-    CommitteeOptionsPage
+    CommitteeOptionsPage,
+    TeamCreatePage,
+    PlayerQuestionsPage,
+    LetsplayPage,
+    GameOverPage
+
   ],
   imports: [
     BrowserModule,
@@ -31,7 +42,12 @@ import { CommitteeOptionsPage } from '../pages/committee-options/committee-optio
     CommitteeLoginPage,
     QuestionsPage,
     SubmitsuccessPage,
-    CommitteeOptionsPage
+    CommitteeOptionsPage,
+    TeamCreatePage,
+    PlayerQuestionsPage,
+    LetsplayPage,
+    GameOverPage
+
   ],
   providers: [
     StatusBar,
