@@ -1,5 +1,14 @@
 {
   "name": "triviaDUU",
+<<<<<<< HEAD
   "integrations": {},
   "type": "ionic-angular"
 }
+=======
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
+>>>>>>> d60aec22a794f6b7b4c0270b33da8d54b3aa1155
