@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { triviaNight } from '../../models/triviaNight';
-import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
 /*
@@ -34,6 +33,10 @@ export class QuestionsserviceProvider {
         });
       }
     }
+    // database.ref("mostrecent").set({
+    //   Date: date
+    // });
+
 
 
     // var newURL = this.baseUrl + "/" + date + "/Admin/Round-1/Question-1/Question.json" ;
