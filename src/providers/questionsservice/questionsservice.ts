@@ -20,6 +20,9 @@ export class QuestionsserviceProvider {
   submitQuestions( date: string, triviaData: triviaNight, callback: Function
   ) {
     var database = firebase.database();
+    database.ref(date+"/play").set({
+      Play: false
+    });
     var rounds = ["Round-1", "Round-2","Round-3"];
     var roundquestions = [triviaData.firstroundquestions, triviaData.secondroundquestions, triviaData.thirdroundquestions];
     var roundanswers = [triviaData.firstroundanswers,triviaData.secondroundanswers,triviaData.thirdroundanswers];
@@ -32,7 +35,9 @@ export class QuestionsserviceProvider {
           Answers: roundanswers[i][j]
         });
       }
+
     }
+
     // database.ref("mostrecent").set({
     //   Date: date
     // });

@@ -38,14 +38,6 @@ export class CommitteeOptionsPage {
     
   } 
 
-  toggleTrivia(){
-    this.date = this.navParams.get("dot");
-    this.start = this.navParams.get("start");
-    var database = firebase.database();
-    database.ref(this.date).set({
-      Start:this.start
-    });
-  }
 
   presentProfileModalStart() {
     let profileModal = this.modalCtrl.create(EndtriviaPage, {start:true});
@@ -57,16 +49,48 @@ export class CommitteeOptionsPage {
     profileModal.present();
   }
 
+  toggleTriviaOn() {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    var dateformatted = mm + "-" + dd + "-" + yyyy;
+    var ref = firebase.database().ref(dateformatted + "/play");
+    ref.once("value")
+      .then(function(snapshot){
+        var play = snapshot.val();
+          firebase.database().ref(dateformatted+"/play").set({
+            Play: true
+          });
+        
+        
+
+      })  }
+
+  toggleTriviaOff() {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    var dateformatted = mm + "-" + dd + "-" + yyyy;
+    var ref = firebase.database().ref(dateformatted + "/play");
+    ref.once("value")
+      .then(function(snapshot){
+        var play = snapshot.val();
+          firebase.database().ref(dateformatted+"/play").set({
+            Play: false
+          });
+        }
+
+      )  
+    
+    }
+    
+
   
 
 
-  // startTrivia() {
-  //   private date : string = await this.getDate();
-  //   var database = firebase.database();
-  //   database.ref().set({
 
-
-  // }
 
 
 }

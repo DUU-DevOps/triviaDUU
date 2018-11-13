@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CommitteeOptionsPage } from '../committee-options/committee-options';
+import * as firebase from 'firebase/app';
 
 /**
  * Generated class for the EndtriviaPage page.
@@ -24,7 +25,9 @@ export class EndtriviaPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad EndtriviaPage');
   }
+
   endTrivia(){
+
     this.start = this.navParams.get("start");
     this.navCtrl.push(CommitteeOptionsPage, {dot:this.dot, start:this.start});
   }
