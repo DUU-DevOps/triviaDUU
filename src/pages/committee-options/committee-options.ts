@@ -3,8 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { QuestionsPage } from '../questions/questions';
 import * as firebase from 'firebase/app';
 import { ModalController } from 'ionic-angular';
-import { StarttriviaPage } from '../starttrivia/starttrivia';
-import { EndtriviaPage } from '../endtrivia/endtrivia';
 
 /**
  * Generated class for the CommitteeOptionsPage page.
@@ -39,15 +37,6 @@ export class CommitteeOptionsPage {
   } 
 
 
-  presentProfileModalStart() {
-    let profileModal = this.modalCtrl.create(EndtriviaPage, {start:true});
-    profileModal.present();
-  }
-
-  presentProfileModalEnd() {
-    let profileModal = this.modalCtrl.create(EndtriviaPage,{start:false});
-    profileModal.present();
-  }
 
   toggleTriviaOn() {
     var today = new Date();
