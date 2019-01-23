@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { QuestionsPage } from '../questions/questions';
 import * as firebase from 'firebase/app';
 import { ModalController } from 'ionic-angular';
+import { GradingPage } from '../grading/grading';
 
 /**
  * Generated class for the CommitteeOptionsPage page.
@@ -33,6 +34,7 @@ export class CommitteeOptionsPage {
   }
 
   goToGrading() {
+    this.navCtrl.push(GradingPage);
     
   } 
 
