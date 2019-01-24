@@ -16,7 +16,13 @@
   <ion-content padding style="background-color:#062F4F; font-family: Gill Sans, sans-serif">
 
       <div style = "color: #CAEBF2; font-family: Gill Sans, sans-serif; font-size: 30px">Round 1</div>
-
+      <div style = "color: #CAEBF2; font-family: Gill Sans, sans-serif; font-size: 20px">Date of Trivia Night</div>
+      <div style = "color: #CAEBF2; font-family: Gill Sans, sans-serif; font-size: 14px">Please enter as mm-dd-yyyy (10-24-2018).</div>
+      <ion-item>
+        <ion-label floating>Date of Trivia</ion-label>
+        <ion-input type="text" [(ngModel)]="date" name="date"></ion-input>
+      </ion-item>
+      <br>
       <ion-item> Question 1 </ion-item>
         
       <ion-item>
@@ -272,7 +278,7 @@
 
 
 
-    <button ion-button type="submit" block (click) = goToGameOverPage()>Submit Answers</button>
+    <button ion-button type="submit" block (click) = goToPlayerSuccess()>Submit Answers</button>
 
 </ion-content>
 

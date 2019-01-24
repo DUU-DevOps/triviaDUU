@@ -18,6 +18,10 @@
     <div style="text-align:center; color: #CAEBF2; font-size:40px" class = "text" padding-bottom= 10px > 
         Create Your Team!
     </div>
+    <ion-item>
+         <ion-label>Team Name: </ion-label>
+         <ion-input type="text"  [(ngModel)]="name"> </ion-input>
+    </ion-item>
 
     <ion-item *ngFor="let player of playersArray; let i=index">
         <ion-label>{{player}}</ion-label>

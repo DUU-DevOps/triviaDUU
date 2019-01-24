@@ -28,8 +28,8 @@ export class QuestionsPage {
   public answerthreeroundone: string;
   public questionfourroundone: string;
   public answerfourroundone: string;
-  public questionfoveroundone: string;
-  public answefiveroundone: string;
+  public questionfiveroundone: string;
+  public answerfiveroundone: string;
   public questionsixroundone: string;
   public answersixroundone: string;
   public questionsevenroundone: string;
@@ -49,13 +49,13 @@ export class QuestionsPage {
   public answerthreeroundtwo: string;
   public questionfourroundtwo: string;
   public answerfourroundtwo: string;
-  public questionfoveroundtwo: string;
+  public questionfiveroundtwo: string;
   public answerfiveroundtwo: string;
   public questionsixroundtwo: string;
   public answersixroundtwo: string;
   public questionsevenroundtwo: string;
   public answersevenroundtwo: string;
-  public questitwoightroundtwo: string;
+  public questioneightroundtwo: string;
   public answereightroundtwo: string;
   public questionnineroundtwo: string;
   public answernineroundtwo: string;
@@ -70,8 +70,8 @@ export class QuestionsPage {
   public answerthreeroundthree: string;
   public questionfourroundthree: string;
   public answerfourroundthree: string;
-  public questionfoveroundthree: string;
-  public answefiveroundthree: string;
+  public questionfiveroundthree: string;
+  public answerfiveroundthree: string;
   public questionsixroundthree: string;
   public answersixroundthree: string;
   public questionsevenroundthree: string;
@@ -108,7 +108,7 @@ export class QuestionsPage {
       this.questiontworoundone,
       this.questionthreeroundone,
       this.questionfourroundone,
-      this.questionfoveroundone,
+      this.questionfiveroundone,
       this.questionsixroundone,
       this.questionsevenroundone,
       this.questioneightroundone,
@@ -121,7 +121,7 @@ export class QuestionsPage {
       this.answertworoundone,
       this.answerthreeroundone,
       this.answerfourroundone,
-      this.answefiveroundone,
+      this.answerfiveroundone,
       this.answersixroundone,
       this.answersevenroundone,
       this.answereightroundone,
@@ -134,10 +134,10 @@ export class QuestionsPage {
       this.questiontworoundtwo,
       this.questionthreeroundtwo,
       this.questionfourroundtwo,
-      this.questionfoveroundtwo,
+      this.questionfiveroundtwo,
       this.questionsixroundtwo,
       this.questionsevenroundtwo,
-      this.questitwoightroundtwo,
+      this.questioneightroundtwo,
       this.questionnineroundtwo,
       this.questiontenroundtwo,
     ]
@@ -161,7 +161,7 @@ export class QuestionsPage {
       this.questiontworoundthree,
       this.questionthreeroundthree,
       this.questionfourroundthree,
-      this.questionfoveroundthree,
+      this.questionfiveroundthree,
       this.questionsixroundthree,
       this.questionsevenroundthree,
       this.questioneightroundthree,
@@ -173,7 +173,7 @@ export class QuestionsPage {
       this.answertworoundthree,
       this.answerthreeroundthree,
       this.answerfourroundthree,
-      this.answefiveroundthree,
+      this.answerfiveroundthree,
       this.answersixroundthree,
       this.answersevenroundthree,
       this.answereightroundthree,
@@ -182,6 +182,7 @@ export class QuestionsPage {
     ]
 
     try{
+
       this.questionsService.submitQuestions(this.date, {
         firstroundanswers: this.firstroundanswers,
         firstroundquestions: this.firstroundquestions,

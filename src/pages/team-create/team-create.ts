@@ -22,6 +22,7 @@ import { LetsplayPage } from '../letsplay/letsplay';
 export class TeamCreatePage {
 
   thing =[];
+  name = "";
   
   constructor(
     public navCtrl: NavController, 
@@ -113,6 +114,7 @@ export class TeamCreatePage {
     }
   
     console.log(this.playerNameArray);
+    console.log(this.name);
 
     this.presentConfirm();
   }

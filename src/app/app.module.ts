@@ -19,12 +19,12 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireModule } from '@angular/fire';
 
 
-
 import { TeamCreatePage } from '../pages/team-create/team-create';
 import { PlayerQuestionsPage } from '../pages/player-questions/player-questions';
 import { LetsplayPage } from '../pages/letsplay/letsplay';
 import { GameOverPage } from '../pages/game-over/game-over';
 import { ReviewAnswersPage } from '../pages/review-answers/review-answers';
+import { PlayerSubmitProvider } from '../providers/player-submit/player-submit';
 
 
 const config = {
@@ -80,6 +80,7 @@ const config = {
     SplashScreen,
     AngularFireAuth,
     QuestionsserviceProvider,
+    PlayerSubmitProvider,
     UsersServiceProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
