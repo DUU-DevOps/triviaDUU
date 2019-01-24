@@ -89,7 +89,8 @@ export class TeamCreatePage {
         {
           text: 'Go Back',
           handler: data => {
-            this.goToHomePage();
+            // this.goToHomePage();
+            this.navCtrl.popToRoot();
           }
         },
         {
