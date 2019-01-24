@@ -4,6 +4,8 @@ import { PlayerQuestionsPage } from '../player-questions/player-questions';
 import { AlertController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { LetsplayPage } from '../letsplay/letsplay';
+import { PlayerSubmitProvider } from '../../providers/player-submit/player-submit';
+import { netIDTeamName } from '../../models/netIDTeamName';
 
 
 
@@ -25,6 +27,7 @@ export class TeamCreatePage {
   name = "";
   
   constructor(
+    public playerAnswerService: PlayerSubmitProvider,
     public navCtrl: NavController, 
     public navParams: NavParams,
     private alertController: AlertController) {
@@ -97,6 +100,7 @@ export class TeamCreatePage {
         {
           text: 'Proceed',
           handler: data => {
+            this.submitTeamName();
             this.goToLetsPlayPage();
           }
         }
@@ -120,6 +124,14 @@ export class TeamCreatePage {
   }
 
 
+  submitTeamName(){
+    try{
+      this.playerAnswerService.getTeamName({teamName: this.name})
+    }
+    catch{
+      console.log("Problem HERE");
+    }
+  }
 
   goToPlayerQuestionsPage(){
     this.navCtrl.push(PlayerQuestionsPage);

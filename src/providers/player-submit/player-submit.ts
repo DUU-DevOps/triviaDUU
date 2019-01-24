@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { playerTriviaNight } from '../../models/playerTriviaNight';
 import * as firebase from 'firebase/app';
+import { netIDTeamName } from '../../models/netIDTeamName';
 firebase.initializeApp
 
 
@@ -21,6 +22,7 @@ export class PlayerSubmitProvider {
   constructor(public http: HttpClient) {}
   
 
+myTeamName;
 
 playerSubmitAnswers( date: string, triviaData: playerTriviaNight, callback: Function
 ) {
@@ -33,10 +35,25 @@ playerSubmitAnswers( date: string, triviaData: playerTriviaNight, callback: Func
   for (var i = 0; i < 3; i++) {
     for (var j = 0; j < questions.length; j++) {
       //console.log(date+"/teams/" + "team-name/" + rounds[i] + "/" + questions[j])
-      database.ref(date+"/teams/" + "team-name-1/" + rounds[i] + "/" + questions[j]+"/").set({
+      database.ref(date+"/teams/" + this.myTeamName + "/" + rounds[i] + "/" + questions[j]+"/").set({
         Answers: roundanswers[i][j]
       });
     }
   }
+  database.ref(date+"/teams/" + this.myTeamName).update({
+    "round1score":0,
+    "round2score":0,
+    "round3score":0
+  });
 }
+
+
+
+getTeamName(triviaData: netIDTeamName){
+  this.myTeamName = triviaData.teamName;
+
+  
+}
+
+
 }

@@ -30,7 +30,7 @@ export class PlayerQuestionsPage {
   public questionfourroundone: string;
   public answerfourroundone: string;
   public questionfiveroundone: string;
-  public answefiveroundone: string;
+  public answerfiveroundone: string;
   public questionsixroundone: string;
   public answersixroundone: string;
   public questionsevenroundone: string;
@@ -72,7 +72,7 @@ export class PlayerQuestionsPage {
   public questionfourroundthree: string;
   public answerfourroundthree: string;
   public questionfoveroundthree: string;
-  public answefiveroundthree: string;
+  public answerfiveroundthree: string;
   public questionsixroundthree: string;
   public answersixroundthree: string;
   public questionsevenroundthree: string;
@@ -110,7 +110,7 @@ export class PlayerQuestionsPage {
       this.answertworoundone,
       this.answerthreeroundone,
       this.answerfourroundone,
-      this.answefiveroundone,
+      this.answerfiveroundone,
       this.answersixroundone,
       this.answersevenroundone,
       this.answereightroundone,
@@ -140,7 +140,7 @@ export class PlayerQuestionsPage {
       this.answertworoundthree,
       this.answerthreeroundthree,
       this.answerfourroundthree,
-      this.answefiveroundthree,
+      this.answerfiveroundthree,
       this.answersixroundthree,
       this.answersevenroundthree,
       this.answereightroundthree,
@@ -149,11 +149,13 @@ export class PlayerQuestionsPage {
     ]
 
     try{
-      this.playerAnswerService.playerSubmitAnswers(this.date, {
-        roundOneAnswers: this.roundOneAnswers,
-        roundTwoAnswers : this.roundTwoAnswers,
-        roundThreeAnswers : this.roundThreeAnswers,
-      }, function(){})
+      
+        this.playerAnswerService.playerSubmitAnswers(this.date, {
+          roundOneAnswers: this.roundOneAnswers,
+          roundTwoAnswers : this.roundTwoAnswers,
+          roundThreeAnswers : this.roundThreeAnswers,
+        }, function(){})
+      
     }
     catch(err){
       console.log(err);
