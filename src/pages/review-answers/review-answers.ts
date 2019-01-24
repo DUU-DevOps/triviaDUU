@@ -45,8 +45,12 @@ export class ReviewAnswersPage {
   }
 
   correct(teamName) {
-    // var dateformatted = this.mm + "-" + this.dd + "-" + this.yyyy;
-    var dateformatted: string = '10-24-18';    
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+    var dateformatted = mm + "-" + dd + "-" + yyyy;
+ 
     var db = firebase.database();
     var dbLoc = (dateformatted + "/teams/" + teamName + "/" + this.round + "score/");
     var currLoc = db.ref(dbLoc);

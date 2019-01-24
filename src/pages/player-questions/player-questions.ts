@@ -100,69 +100,94 @@ export class PlayerQuestionsPage {
     console.log('ionViewDidLoad QuestionsPage');
   }
 
-
-
-  goToPlayerSuccess() {
+goToPlayerSuccessR1() {
+  this.roundOneAnswers=[
+    this.answeroneroundone,
+    this.answertworoundone,
+    this.answerthreeroundone,
+    this.answerfourroundone,
+    this.answerfiveroundone,
+    this.answersixroundone,
+    this.answersevenroundone,
+    this.answereightroundone,
+    this.answernineroundone,
+    this.answertenroundone,
+  ]
+  for (var x =0; x<10; x++){
+    if (typeof(this.roundOneAnswers[x]) === "undefined"){
+      this.roundOneAnswers[x] = "NO-ANSWER-SUBMITTED";
+    }
+  }
   
+  try{
+      this.playerAnswerService.playerSubmitAnswers("round1", {
+        answers: this.roundOneAnswers,
+      }, function(){})
+  }
+  catch(err){
+    console.log(err);
+  }
+  
+  alert("Round One Answers Submitted Successfully!")
+}
 
-    this.roundOneAnswers=[
-      this.answeroneroundone,
-      this.answertworoundone,
-      this.answerthreeroundone,
-      this.answerfourroundone,
-      this.answerfiveroundone,
-      this.answersixroundone,
-      this.answersevenroundone,
-      this.answereightroundone,
-      this.answernineroundone,
-      this.answertenroundone,
-    ]
+goToPlayerSuccessR2() {
+  this.roundTwoAnswers=[
+    this.answeroneroundtwo,
+    this.answertworoundtwo,
+    this.answerthreeroundtwo,
+    this.answerfourroundtwo,
+    this.answerfiveroundtwo,
+    this.answersixroundtwo,
+    this.answersevenroundtwo,
+    this.answereightroundtwo,
+    this.answernineroundtwo,
+    this.answertenroundtwo,
 
-
-
-    this.roundTwoAnswers=[
-      this.answeroneroundtwo,
-      this.answertworoundtwo,
-      this.answerthreeroundtwo,
-      this.answerfourroundtwo,
-      this.answerfiveroundtwo,
-      this.answersixroundtwo,
-      this.answersevenroundtwo,
-      this.answereightroundtwo,
-      this.answernineroundtwo,
-      this.answertenroundtwo,
-
-    ]
-    
-
-    this.roundThreeAnswers=[
-      this.answeroneroundthree,
-      this.answertworoundthree,
-      this.answerthreeroundthree,
-      this.answerfourroundthree,
-      this.answerfiveroundthree,
-      this.answersixroundthree,
-      this.answersevenroundthree,
-      this.answereightroundthree,
-      this.answernineroundthree,
-      this.answertenroundthree,
-    ]
-
-    try{
-      
-        this.playerAnswerService.playerSubmitAnswers(this.date, {
-          roundOneAnswers: this.roundOneAnswers,
-          roundTwoAnswers : this.roundTwoAnswers,
-          roundThreeAnswers : this.roundThreeAnswers,
-        }, function(){})
-      
+  ]
+  for (var x =0; x<10; x++){
+    if (typeof(this.roundTwoAnswers[x]) === "undefined"){
+      this.roundTwoAnswers[x] = "NO-ANSWER-SUBMITTED";
     }
-    catch(err){
-      console.log(err);
+  }
+  try{
+      this.playerAnswerService.playerSubmitAnswers("round2", {
+        answers: this.roundTwoAnswers,
+      }, function(){})
+  }
+  catch(err){
+    console.log(err);
+  }
+  alert("Round Two Answers Submitted Successfully!")
+}
+
+goToPlayerSuccessR3() {
+  this.roundThreeAnswers=[
+    this.answeroneroundthree,
+    this.answertworoundthree,
+    this.answerthreeroundthree,
+    this.answerfourroundthree,
+    this.answerfiveroundthree,
+    this.answersixroundthree,
+    this.answersevenroundthree,
+    this.answereightroundthree,
+    this.answernineroundthree,
+    this.answertenroundthree,
+  ]
+  for (var x =0; x<10; x++){
+    if (typeof(this.roundThreeAnswers[x]) === "undefined"){
+      this.roundThreeAnswers[x] = "NO-ANSWER-SUBMITTED";
     }
-    this.navCtrl.push(SubmitsuccessPage);
-
-
+  }
+  try{
+      this.playerAnswerService.playerSubmitAnswers("round3", {
+        answers: this.roundThreeAnswers,
+      }, function(){})
+  }
+  catch(err){
+    console.log(err);
+  }
+  this.navCtrl.push(SubmitsuccessPage);
 }
 
 }

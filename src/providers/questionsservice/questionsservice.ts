@@ -23,16 +23,15 @@ export class QuestionsserviceProvider {
     database.ref(date+"/play").set({
       Play: false
     });
-    var rounds = ["Round-1", "Round-2","Round-3"];
+    var rounds = ["round1", "round2","round3"];
     var roundquestions = [triviaData.firstroundquestions, triviaData.secondroundquestions, triviaData.thirdroundquestions];
     var roundanswers = [triviaData.firstroundanswers,triviaData.secondroundanswers,triviaData.thirdroundanswers];
-    var questions = ["Question-1","Question-2","Question-3","Question-4","Question-5","Question-6",
-    "Question-7","Question-8","Question-9","Question-10"]
+    var questions = ["question1","question2","question3","question4","question5","question6","question7","question8","question9","question10"];
     for (var i = 0; i < 3; i++) {
       for (var j = 0; j < questions.length; j++) {
         database.ref(date+"/admin/" + rounds[i]+"/" +questions[j]).set({
-          Question: roundquestions[i][j],
-          Answers: roundanswers[i][j]
+          question: roundquestions[i][j],
+          answers: roundanswers[i][j]
         });
       }
 

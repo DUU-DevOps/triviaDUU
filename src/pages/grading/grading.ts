@@ -49,19 +49,22 @@ export class GradingPage {
           var item: String[] = [];
           var currTeam: String = teamSnapshot.key;
           var roundFormat: string = "round" + round;
-          teamSnapshot.child(roundFormat).forEach(function (teamAnswersSnapshot) {
-            item.push(teamAnswersSnapshot.val())
-          });
+          var questions = ["question1","question2","question3","question4","question5","question6","question7","question8","question9","question10"];
+          for (var x=0; x<10; x++){
+            teamSnapshot.child(roundFormat).child(questions[x]).forEach(function (teamAnswersSnapshot) {
+              item.push(teamAnswersSnapshot.val())
+            });
+          }
           teams.set(currTeam, item);
         });
       });
+    console.log(teams);
     return teams;
   }
 
 
   grade(round: String) {
-    // private dateformatted = this.mm + "-" + this.dd + "-" + this.yyyy;
-    var dateformatted: string = '10-24-18';
+    var dateformatted = this.mm + "-" + this.dd + "-" + this.yyyy;
     var db = firebase.database();
     var dbRef = db.ref(dateformatted);
     var teams = this.getTeamInfo(round, dbRef);
