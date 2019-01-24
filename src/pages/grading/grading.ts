@@ -21,7 +21,7 @@ export class GradingPage {
   private dd = this.today.getDate();
   private mm = this.today.getMonth() + 1; //January is 0!
   private yyyy = this.today.getFullYear();
-
+  private autoGraded = false;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -73,6 +73,7 @@ export class GradingPage {
     var keys = [];
     dbRef.child("admin").child(roundFormat).once("value")
       .then((snapshot) => {
+        if(!this.autoGraded) {
         snapshot.forEach(function (questionSnapshot) {
           var item = questionSnapshot.val();
           item.key = questionSnapshot.key;
@@ -90,7 +91,6 @@ export class GradingPage {
           questionsArr.push(currQuestion);
         }
         var teamNames = Array.from(teams.keys());
-        console.log(teamNames);
         for (let x = 0; x < teamNames.length; x++) {
           var currName: string = teamNames[x].valueOf();
           for (var questionNum = 0; questionNum < 10; questionNum++) {
@@ -98,7 +98,7 @@ export class GradingPage {
             accetableAnswersArr.push(currAccepAns);
             var teamCurrAnswer: String = teams.get(currName)[questionNum][0];
             if (currAccepAns.indexOf(teamCurrAnswer) != -1) {
-              dbRef.child("teams").child(currName).child(roundFormat).child("score").transaction(function (count) {
+              dbRef.child("teams").child(currName).child(roundFormat).child(roundFormat+"score").transaction(function (count) {
                 count = count + 1;
                 return count;
               });
@@ -108,12 +108,15 @@ export class GradingPage {
             }
           }
         }
-        function Comparator(a, b) {
-          if (a[0] < b[0]) return -1;
-          if (a[0] > b[0]) return 1;
-          return 0;
-        }
-        answersToBeReviewed = answersToBeReviewed.sort(Comparator);        
+
+        answersToBeReviewed = answersToBeReviewed.sort(Comparator); 
+        this.autoGraded = true; 
+      }
+      function Comparator(a, b) {
+        if (a[0] < b[0]) return -1;
+        if (a[0] > b[0]) return 1;
+        return 0;
+      }      
   
       }).then((nextPage) => {
           this.navCtrl.push(ReviewAnswersPage,
