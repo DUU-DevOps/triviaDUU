@@ -1,7 +1,19 @@
 page-grading {
-    .popup{
-    border: 1px solid black;
-    margin: 2%;
+    .button {
+        color: #062F4F;
+        background: #CAEBF2;
+        font-size: 20px;
+        height:50px;
+        width:180px;
+        cursor:pointer;
+        // border: 2px solid #627B95;
+        // border-radius: 5px;
+
+    }
+
+    .button:hover{
+        background-color: #627B95;
+        color: white;
     }
 }
     

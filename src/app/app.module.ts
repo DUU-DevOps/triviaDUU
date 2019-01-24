@@ -24,6 +24,7 @@ import { TeamCreatePage } from '../pages/team-create/team-create';
 import { PlayerQuestionsPage } from '../pages/player-questions/player-questions';
 import { LetsplayPage } from '../pages/letsplay/letsplay';
 import { GameOverPage } from '../pages/game-over/game-over';
+import { ReviewAnswersPage } from '../pages/review-answers/review-answers';
 
 
 const config = {
@@ -47,7 +48,8 @@ const config = {
     PlayerQuestionsPage,
     LetsplayPage,
     GameOverPage,
-    GradingPage
+    GradingPage,
+    ReviewAnswersPage
 
   ],
   imports: [
@@ -69,7 +71,8 @@ const config = {
     PlayerQuestionsPage,
     LetsplayPage,
     GameOverPage,
-    GradingPage
+    GradingPage,
+    ReviewAnswersPage
 
   ],
   providers: [

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, List } from 'ionic-angular';
 import * as firebase from 'firebase/app';
-import * as $ from 'jquery';
+import { ReviewAnswersPage } from '../review-answers/review-answers';
 
 
 /**
@@ -21,12 +21,6 @@ export class GradingPage {
   private dd = this.today.getDate();
   private mm = this.today.getMonth() + 1; //January is 0!
   private yyyy = this.today.getFullYear();
-  // private dateformatted = this.mm + "-" + this.dd + "-" + this.yyyy;
-  private dateformatted = '10-24-18';
-
-  private db = firebase.database();
-  // private dbRef = this.db.ref(this.dateformatted);
-  private dbRef = this.db.ref('10-24-18');
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -47,9 +41,9 @@ export class GradingPage {
     return returnArr;
   }
 
-  getTeamInfo(round: String) {
+  getTeamInfo(round: String, dbRef) {
     var teams: Map<String, String[]> = new Map<String, String[]>();
-    this.dbRef.child("teams").once("value")
+    dbRef.child("teams").once("value")
       .then(function (snapshot) {
         snapshot.forEach(function (teamSnapshot) {
           var item: String[] = [];
@@ -64,45 +58,52 @@ export class GradingPage {
     return teams;
   }
 
+
   grade(round: String) {
-    let teams = this.getTeamInfo(round);
-    let roundFormat: string = "round" + round;
-    this.dbRef.child("admin").child(roundFormat).once("value")
-      .then(function (snapshot) {
-        let accetableAnswersArr = [];
-        let answersToBeReviewed = [];
-        let questionsArr = [];
-        let questionsAnswers: Map<String, Array<String>> = new Map<String, Array<String>>();
-        let keys = [];
+    // private dateformatted = this.mm + "-" + this.dd + "-" + this.yyyy;
+    var dateformatted: string = '10-24-18';
+    var db = firebase.database();
+    var dbRef = db.ref(dateformatted);
+    var teams = this.getTeamInfo(round, dbRef);
+    var roundFormat: string = "round" + round;
+    var accetableAnswersArr: Array<Array<String>> = [];
+    var answersToBeReviewed = [];
+    var questionsArr = [];
+    var questionsAnswers: Map<String, Array<String>> = new Map<String, Array<String>>();
+    var keys = [];
+    dbRef.child("admin").child(roundFormat).once("value")
+      .then((snapshot) => {
         snapshot.forEach(function (questionSnapshot) {
           var item = questionSnapshot.val();
           item.key = questionSnapshot.key;
-          keys.push(item);
+          var index:number = +questionSnapshot.key.slice(-1)-1;
+          if(questionSnapshot.key.slice(-2,-1)!='n') index = +questionSnapshot.key.slice(-2)-1;
+          keys[index]=item;
+          console.log(keys);
         });
+
         for (var x = 0; x < 10; x++) {
           let currAns: Array<String> = keys[x].answers.split(",");
           let currQuestion = keys[x].question;
+          //contingent on the fact that no two questions are the same
           questionsAnswers.set(currQuestion, currAns)
-          questionsArr.push(keys[x].question);
+          questionsArr.push(currQuestion);
         }
-        let teamNames:String[]= Array.from(teams.keys());
+        var teamNames = Array.from(teams.keys());
+        console.log(teamNames);
         for (let x = 0; x < teamNames.length; x++) {
-          let currName = teamNames[x];
-          let hasCorrectAnswer = false;
-          for (let questionNum = 0; questionNum < 10; questionNum++) {
-            let currAccepAns:Array<String> = questionsAnswers.get(questionsArr[questionNum]);
-            let teamCurrAnswer:String = teams.get(currName)[questionNum][0];
-            if (currAccepAns.indexOf(teamCurrAnswer)!=-1) {
-              var dbLoc = this.dateformatted + "/teams/" + currName + "/" + roundFormat + "score/";
-              var currLoc = this.db.ref(dbLoc);
-              currLoc.transaction(function (count) {
+          var currName: string = teamNames[x].valueOf();
+          for (var questionNum = 0; questionNum < 10; questionNum++) {
+            let currAccepAns: Array<String> = questionsAnswers.get(questionsArr[questionNum]);
+            accetableAnswersArr.push(currAccepAns);
+            var teamCurrAnswer: String = teams.get(currName)[questionNum][0];
+            if (currAccepAns.indexOf(teamCurrAnswer) != -1) {
+              dbRef.child("teams").child(currName).child(roundFormat).child("score").transaction(function (count) {
                 count = count + 1;
                 return count;
               });
-              hasCorrectAnswer = true;
-              break;
             }
-            if (!hasCorrectAnswer) {
+            else {
               answersToBeReviewed.push([questionNum, teams.get(currName)[questionNum], currName]);
             }
           }
@@ -112,36 +113,24 @@ export class GradingPage {
           if (a[0] > b[0]) return 1;
           return 0;
         }
-        answersToBeReviewed = answersToBeReviewed.sort(Comparator);
-        var roundStr = round.replace("-", "");
-        // console.log(answersToBeReviewed);
-        //need answertsToBeReviewed, Questions
-        for (var k = 0; k < answersToBeReviewed.length; k++) {
-          $("#popupMain").append('<div class="popup" id="' + answersToBeReviewed[k][2] + answersToBeReviewed[k][0] + '"> ' +
-            '<h5> Question ' + answersToBeReviewed[k][0] + '</h5>' +
-            '<p>Question: ' + questionsArr[answersToBeReviewed[k][0]] + '</p>' +
-            '<p>Accepted Answers: ' + accetableAnswersArr[answersToBeReviewed[k][0]] + ' </p>' +
-            '<p>Team Name: ' + answersToBeReviewed[k][2] + '</p>' +
-            '<p>Team Answer: ' + answersToBeReviewed[k][1] + '</p>' +
-            '<button onclick="correct(\'' + roundStr + '\', \'' + answersToBeReviewed[k][2] + '\', \'' + answersToBeReviewed[k][0] + '\')">Correct</button>' +
-            '<button onclick="incorrect(\'' + answersToBeReviewed[k][2] + answersToBeReviewed[k][0] + '\')">Incorrect</button>' +
-            '</div>');
+        answersToBeReviewed = answersToBeReviewed.sort(Comparator);        
+  
+      }).then((nextPage) => {
+          this.navCtrl.push(ReviewAnswersPage,
+            {
+              answersToBeReviewed:answersToBeReviewed,
+              roundStr:roundFormat,
+              questionsArr:questionsArr,
+              accetableAnswersArr:accetableAnswersArr
+            });
         }
-      });
-  }
-  correct(round, teamName, questionNum) {
-    //console.log(round + " " + teamName);
-    var dbLoc = (this.dateformatted + "/teams/" + teamName + "/" + round + "score/");
-    var currLoc = this.db.ref(dbLoc);
 
-    currLoc.transaction(function (count) {
-      count = count + 1;
-      return count;
-    });
-    this.incorrect(teamName + questionNum)
-  }
-  incorrect(ID) {
-    $("#" + ID).remove();
-  }
+      )
+
+      }
+
+
+  
+
 
 }
