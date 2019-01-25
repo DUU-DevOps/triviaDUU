@@ -20,12 +20,12 @@
     </div>
     <ion-item>
          <ion-label>Team Name: </ion-label>
-         <ion-input type="text"  [(ngModel)]="name"> </ion-input>
+         <ion-input type="text"  placeholder="Numbers & Letters Only" [(ngModel)]="name"> </ion-input>
     </ion-item>
 
     <ion-item *ngFor="let player of playersArray; let i=index">
         <ion-label>{{player}}</ion-label>
-        <ion-input type="text"  [(ngModel)]="thing[i]"> </ion-input>
+        <ion-input type="text" placeholder="NetID"  [(ngModel)]="thing[i]"> </ion-input>
     </ion-item> 
 
 

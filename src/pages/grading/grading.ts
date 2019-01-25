@@ -58,7 +58,7 @@ export class GradingPage {
           teams.set(currTeam, item);
         });
       });
-    console.log(teams);
+    //console.log(teams);
     return teams;
   }
 
@@ -83,11 +83,11 @@ export class GradingPage {
           var index:number = +questionSnapshot.key.slice(-1)-1;
           if(questionSnapshot.key.slice(-2,-1)!='n') index = +questionSnapshot.key.slice(-2)-1;
           keys[index]=item;
-          console.log(keys);
+          //console.log(keys);
         });
 
         for (var x = 0; x < 10; x++) {
-          let currAns: Array<String> = keys[x].answers.split(",");
+          let currAns: Array<String> = keys[x].answers.toLowerCase().split(",");
           let currQuestion = keys[x].question;
           //contingent on the fact that no two questions are the same
           questionsAnswers.set(currQuestion, currAns)
@@ -99,15 +99,15 @@ export class GradingPage {
           for (var questionNum = 0; questionNum < 10; questionNum++) {
             let currAccepAns: Array<String> = questionsAnswers.get(questionsArr[questionNum]);
             accetableAnswersArr.push(currAccepAns);
-            var teamCurrAnswer: String = teams.get(currName)[questionNum][0];
+            var teamCurrAnswer: String = teams.get(currName)[questionNum].toLowerCase();
             if (currAccepAns.indexOf(teamCurrAnswer) != -1) {
-              dbRef.child("teams").child(currName).child(roundFormat).child(roundFormat+"score").transaction(function (count) {
+              dbRef.child("teams").child(currName).child(roundFormat+"score").transaction(function (count) {
                 count = count + 1;
                 return count;
               });
             }
             else {
-              answersToBeReviewed.push([questionNum, teams.get(currName)[questionNum], currName]);
+              answersToBeReviewed.push([questionNum, teams.get(currName)[questionNum], currName.replace(/-/g, " ")]);
             }
           }
         }

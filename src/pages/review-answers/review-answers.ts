@@ -62,17 +62,9 @@ export class ReviewAnswersPage {
   }
 
   submit() {
-    var all = true;
     for(var i = 0; i<this.answersToDisplay.length;i++) {
-      if(this.answersToDisplay[i].checkedValue=="none") {
-        all = false;
-      }
-    }
-    if(all) {
-      for(var i = 0; i<this.answersToDisplay.length;i++) {
-        if(this.answersToDisplay[i].checkedValue=="correct") {
-          this.correct(this.answersToDisplay[i].teamName);
-        }
+      if(this.answersToDisplay[i].checkedValue=="correct") {
+        this.correct(this.answersToDisplay[i].teamName.replace(/ /g, "-"));
       }
     }
     this.navCtrl.push(GradingPage);
