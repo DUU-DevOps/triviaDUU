@@ -20,7 +20,8 @@
       <div style = "color: #CAEBF2; font-family: Gill Sans, sans-serif; font-size: 14px">Please enter as mm-dd-yyyy (10-24-2018).</div>
       <ion-item>
         <ion-label floating>Date of Trivia</ion-label>
-        <ion-input type="text" [(ngModel)]="date" name="date"></ion-input>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="date" name="date"></ion-datetime>
+        <!-- <ion-input type="text" [(ngModel)]="date" name="date"></ion-input> -->
       </ion-item>
       <br>
       <div style = "color: #CAEBF2; font-family: Gill Sans, sans-serif; font-size: 20px">Round 1</div>

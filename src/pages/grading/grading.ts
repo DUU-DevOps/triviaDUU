@@ -21,7 +21,8 @@ export class GradingPage {
   private dd = this.today.getDate();
   private mm = this.today.getMonth() + 1; //January is 0!
   private yyyy = this.today.getFullYear();
-  private autoGraded = false;
+  private autoGraded:Boolean[] = [false, false,false];
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -63,7 +64,7 @@ export class GradingPage {
   }
 
 
-  grade(round: String) {
+  grade(round) {
     var dateformatted = this.mm + "-" + this.dd + "-" + this.yyyy;
     var db = firebase.database();
     var dbRef = db.ref(dateformatted);
@@ -76,7 +77,7 @@ export class GradingPage {
     var keys = [];
     dbRef.child("admin").child(roundFormat).once("value")
       .then((snapshot) => {
-        if(!this.autoGraded) {
+        if(!this.autoGraded[round]) {
         snapshot.forEach(function (questionSnapshot) {
           var item = questionSnapshot.val();
           item.key = questionSnapshot.key;
@@ -113,7 +114,7 @@ export class GradingPage {
         }
 
         answersToBeReviewed = answersToBeReviewed.sort(Comparator); 
-        this.autoGraded = true; 
+        this.autoGraded[round] = true; 
       }
       function Comparator(a, b) {
         if (a[0] < b[0]) return -1;

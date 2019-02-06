@@ -90,7 +90,7 @@ export class QuestionsPage {
     public thirdroundquestions : Array<String>;
     public thirdroundanswers : Array<String>;
     public triviaData:triviaNight;
-    public date: string;
+    public date: Date;
 
   constructor(public questionsService: QuestionsserviceProvider, public loadCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
     
@@ -99,8 +99,6 @@ export class QuestionsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad QuestionsPage');
   }
-
-
 
   goToSuccess() {
     this.firstroundquestions =[
@@ -182,8 +180,11 @@ export class QuestionsPage {
     ]
 
     try{
-
-      this.questionsService.submitQuestions(this.date, {
+      let year = this.date.getFullYear;
+      let month = this.date.getMonth;
+      let day = this.date.getDay;
+      let newDate = month + "-" + day + "-" + year;
+      this.questionsService.submitQuestions(newDate, {
         firstroundanswers: this.firstroundanswers,
         firstroundquestions: this.firstroundquestions,
         secondroundanswers : this.secondroundanswers,
@@ -196,8 +197,6 @@ export class QuestionsPage {
       console.log("Could not submit");
     }
     this.navCtrl.push(SubmitsuccessPage);
-
-
   }
 
 
