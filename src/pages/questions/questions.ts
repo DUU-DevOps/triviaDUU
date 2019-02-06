@@ -40,6 +40,9 @@ export class QuestionsPage {
   public answernineroundone: string;
   public questiontenroundone: string;
   public answertenroundone: string;
+  public bonusroundone: string;
+  public bonusquestionroundone: string;
+  public bonusanswerroundone: string;
 
   public questiononeroundtwo: string;
   public answeroneroundtwo: string;
@@ -61,6 +64,8 @@ export class QuestionsPage {
   public answernineroundtwo: string;
   public questiontenroundtwo: string;
   public answertenroundtwo: string;
+  public bonusquestionroundtwo: string;
+  public bonusanswerroundtwo: string;
 
   public questiononeroundthree: string;
   public answeroneroundthree: string;
@@ -82,6 +87,8 @@ export class QuestionsPage {
   public answernineroundthree: string;
   public questiontenroundthree: string;
   public answertenroundthree: string;
+  public bonusquestionroundthree: string;
+  public bonusanswerroundthree: string;
 
   public firstroundquestions: Array<String>;
     public firstroundanswers: Array<String>;
@@ -114,6 +121,7 @@ export class QuestionsPage {
       this.questioneightroundone,
       this.questionnineroundone,
       this.questiontenroundone,
+      this.bonusquestionroundone,
     ]
 
     this.firstroundanswers=[
@@ -127,6 +135,7 @@ export class QuestionsPage {
       this.answereightroundone,
       this.answernineroundone,
       this.answertenroundone,
+      this.bonusanswerroundone,
     ]
 
     this.secondroundquestions=[
@@ -140,6 +149,7 @@ export class QuestionsPage {
       this.questioneightroundtwo,
       this.questionnineroundtwo,
       this.questiontenroundtwo,
+      this.bonusquestionroundtwo,
     ]
 
     this.secondroundanswers=[
@@ -153,6 +163,7 @@ export class QuestionsPage {
       this.answereightroundtwo,
       this.answernineroundtwo,
       this.answertenroundtwo,
+      this.bonusanswerroundtwo,
 
     ]
     
@@ -167,6 +178,7 @@ export class QuestionsPage {
       this.questioneightroundthree,
       this.questionnineroundthree,
       this.questiontenroundthree,
+      this.bonusquestionroundthree,
     ]
     this.thirdroundanswers=[
       this.answeroneroundthree,
@@ -179,6 +191,7 @@ export class QuestionsPage {
       this.answereightroundthree,
       this.answernineroundthree,
       this.answertenroundthree,
+      this.bonusanswerroundthree,
     ]
 
     try{

@@ -4,6 +4,8 @@ import { Injectable } from '@angular/core';
 import { playerTriviaNight } from '../../models/playerTriviaNight';
 import * as firebase from 'firebase/app';
 import { netIDTeamName } from '../../models/netIDTeamName';
+import { ParseSourceFile } from '@angular/compiler';
+import { v } from '@angular/core/src/render3';
 
 var config = {
   apiKey: "AIzaSyCTFrdcLsW5gtU7QohQ68M82ijy-NTAG7o",
@@ -52,17 +54,52 @@ playerSubmitAnswers(roundID: string, triviaData: playerTriviaNight, callback: Fu
         answers: roundanswers[j]
       });
     }
-  
+    
     if (roundID == "round1"){
-      database.ref(currDate+"/teams/" + this.myTeamName).update({
-        "round1score":0,
-        "round2score":0,
-        "round3score":0
+     /**
+     * If the value doesn't already exist, set to 0
+     */
+    var round1Init = false;
+    var round2Init = false;
+    var round3Init = false;
+
+      database.ref(currDate+"/teams/" + this.myTeamName).once('value', function(snapshot) {
+        if(typeof snapshot.val().round1score !== 'undefined'){
+          round1Init = true;
+        }
       });
+      
+      if (! round1Init){
+        database.ref(currDate+"/teams/" + this.myTeamName).update({
+          "round1score" : 0
+        });
+      }
+
+      database.ref(currDate+"/teams/" + this.myTeamName).once('value', function(snapshot) {
+        if(typeof snapshot.val().round2score !== 'undefined'){
+          round2Init = true;
+        }
+      });
+      
+      if (! round2Init){
+        database.ref(currDate+"/teams/" + this.myTeamName).update({
+          "round2score" : 0
+        });
+      }
+
+      database.ref(currDate+"/teams/" + this.myTeamName).once('value', function(snapshot) {
+        if(typeof snapshot.val().round3score !== 'undefined'){
+          round3Init = true;
+        }
+      });
+      
+      if (! round3Init){
+        database.ref(currDate+"/teams/" + this.myTeamName).update({
+          "round3score" : 0
+        });
+      }
     }
 }
-
-
 
 getTeamName(triviaData: netIDTeamName){
   this.myTeamName = triviaData.teamName;
