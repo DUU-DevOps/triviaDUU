@@ -1,15 +1,4 @@
-- Make sure date formatting is appropriate - throw error if not 
-
 --- V2 ---
-
-- DevOps was unable to grade round 2 and 3 during trivia last night. He tried to grade round 2 after round 3 was submitted and this may have caused issues.
-
-- After each round, show the standings to both participants and Duke@Nite staff.
-- Show the final standings along with funniest team name.
-- Add a bonus question at the end of each round.
-- Add a tie breaker to the end of round 2.
-- Add grading algorithm to handle tie breaker. Tiebreaker consists of dates and numbers and is judged on a "closest to" scale (i.e. When was George Washington was born? If the answer is 01/01/1720 and Team A answers 02/25/1743 and Team B answers 03/23/1742, Team B would win in the event of a tie)
-- Add a function in displaying results to take in the consideration of a tie.
 - If they leave an answer blank, notify them and confirm that they would like to leave this blank.
 - Throw a flag/warning if a player tries to exit the window. This warning should let them know that exiting the window could constitute cheating.
 
@@ -17,8 +6,22 @@
 - We should have the netIDs logged into the database.
 - Handle multiple types of questions (i.e. multiple choice, multiple answers, dates, numbers, etc.)
 - Break the question submit page into three pages, one for each round.
+- Add grading algorithm to handle tie breaker. Tiebreaker consists of dates and numbers and is judged on a "closest to" scale (i.e. When was George Washington was born? If the answer is 01/01/1720 and Team A answers 02/25/1743 and Team B answers 03/23/1742, Team B would win in the event of a tie)
+- After each round, show the standings to both participants and Duke@Nite staff.
+- Show the final standings along with funniest team name.
+- Add a function in displaying results to take in the consideration of a tie.
 
 
 NOTES FOR DUKE@NITE:
 
 If you log out of the app, you must log in with the exact same team name. Tell them to not log out or to exit the page.
+
+Bonus has been added.
+
+Date selection has been added.
+
+Grading prevention has been removed
+
+
+TO DO:
+Tiebreaker will be handled long hand as well as funniest team name.

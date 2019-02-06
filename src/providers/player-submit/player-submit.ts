@@ -44,7 +44,7 @@ playerSubmitAnswers(roundID: string, triviaData: playerTriviaNight, callback: Fu
   var currDate = mm + "-" + dd + "-" + yyyy;
   var database = firebase.database();
   var roundanswers = triviaData.answers;
-  var questions = ["question1","question2","question3","question4","question5","question6","question7","question8","question9","question10"];
+  var questions = ["question1","question2","question3","question4","question5","question6","question7","question8","question9","question10","bonus"];
   console.log("Round Answers are: " + roundanswers)
   this.myTeamName = this.myTeamName.replace(/\ /g,"-");;
   

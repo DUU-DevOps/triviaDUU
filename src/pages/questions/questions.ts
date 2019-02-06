@@ -193,10 +193,18 @@ export class QuestionsPage {
     ]
 
     try{
-      let year = this.date.getFullYear;
-      let month = this.date.getMonth;
-      let day = this.date.getDay;
-      let newDate = month + "-" + day + "-" + year;
+      var date = this.date.toString()
+      var year = date.split("-")[0]
+      var month = date.split("-")[1]
+      if (month.split("")[0] == "0"){
+        month = month.split("")[1]
+      }
+      var day = date.split("-")[2]
+      if (day.split("")[0] == "0"){
+        day = day.split("")[1]
+      }
+      var newDate = month + "-" + day + "-" + year
+
       this.questionsService.submitQuestions(newDate, {
         firstroundanswers: this.firstroundanswers,
         firstroundquestions: this.firstroundquestions,
@@ -207,6 +215,7 @@ export class QuestionsPage {
       }, function(){})
     }
     catch(err){
+      console.log(err)
       console.log("Could not submit");
     }
     this.navCtrl.push(SubmitsuccessPage);

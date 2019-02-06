@@ -41,6 +41,7 @@ export class PlayerQuestionsPage {
   public answernineroundone: string;
   public questiontenroundone: string;
   public answertenroundone: string;
+  public answerbonusroundone: string;
 
   public questiononeroundtwo: string;
   public answeroneroundtwo: string;
