@@ -117,16 +117,16 @@ export class TeamCreatePage {
       }
     }
   
-    console.log(this.playerNameArray);
-    console.log(this.name);
-
+    //console.log(this.playerNameArray);
+    //console.log(this.name);
+    this.playerNameArray.push(this.name);
     this.presentConfirm();
   }
 
 
   submitTeamName(){
     try{
-      this.playerAnswerService.getTeamName({teamName: this.name})
+      this.playerAnswerService.getTeamName({teamName: this.playerNameArray})
     }
     catch{
       console.log("Problem HERE");

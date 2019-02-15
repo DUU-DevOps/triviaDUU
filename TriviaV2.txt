@@ -1,9 +1,4 @@
---- V2 ---
-- If they leave an answer blank, notify them and confirm that they would like to leave this blank.
-- Throw a flag/warning if a player tries to exit the window. This warning should let them know that exiting the window could constitute cheating.
-
 --- V3 ---
-- We should have the netIDs logged into the database.
 - Handle multiple types of questions (i.e. multiple choice, multiple answers, dates, numbers, etc.)
 - Break the question submit page into three pages, one for each round.
 - Add grading algorithm to handle tie breaker. Tiebreaker consists of dates and numbers and is judged on a "closest to" scale (i.e. When was George Washington was born? If the answer is 01/01/1720 and Team A answers 02/25/1743 and Team B answers 03/23/1742, Team B would win in the event of a tie)
