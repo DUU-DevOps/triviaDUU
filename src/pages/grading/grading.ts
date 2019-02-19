@@ -50,8 +50,8 @@ export class GradingPage {
           var item: String[] = [];
           var currTeam: String = teamSnapshot.key;
           var roundFormat: string = "round" + round;
-          var questions = ["question1","question2","question3","question4","question5","question6","question7","question8","question9","question10", "bonus"];
-          for (var x=0; x<10; x++){
+          var questions = ["question1","question2","question3","question4","question5","question6","question7","question8","question9","question10", "question11"];
+          for (var x=0; x<11; x++){
             teamSnapshot.child(roundFormat).child(questions[x]).forEach(function (teamAnswersSnapshot) {
               item.push(teamAnswersSnapshot.val())
             });
@@ -87,7 +87,7 @@ export class GradingPage {
           //console.log(keys);
         });
 
-        for (var x = 0; x < 10; x++) {
+        for (var x = 0; x < 11; x++) {
           let currAns: Array<String> = keys[x].answers.toLowerCase().split(",");
           let currQuestion = keys[x].question;
           //contingent on the fact that no two questions are the same
@@ -97,7 +97,7 @@ export class GradingPage {
         var teamNames = Array.from(teams.keys());
         for (let x = 0; x < teamNames.length; x++) {
           var currName: string = teamNames[x].valueOf();
-          for (var questionNum = 0; questionNum < 10; questionNum++) {
+          for (var questionNum = 0; questionNum < 11; questionNum++) {
             let currAccepAns: Array<String> = questionsAnswers.get(questionsArr[questionNum]);
             accetableAnswersArr.push(currAccepAns);
             var teamCurrAnswer: String = teams.get(currName)[questionNum].toLowerCase();

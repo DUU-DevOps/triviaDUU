@@ -100,6 +100,21 @@ export class TeamCreatePage {
           text: 'Proceed',
           handler: data => {
             this.submitTeamName();
+            let nullAnswers = [];
+            for(let i = 0 ;i<11;i++) {
+              nullAnswers.push("");
+            }
+            try{
+              for(let i = 1;i<=3;i++) {
+                this.playerAnswerService.playerSubmitAnswers("round"+i, {
+                  answers: nullAnswers
+                  
+                }, function(){})
+              }
+          }
+          catch(err){
+            console.log(err);
+          }
             this.goToLetsPlayPage();
           }
         }
@@ -115,33 +130,17 @@ export class TeamCreatePage {
         this.playerNameArray.pop();
       }
     }
+    this.playerNameArray.push(this.name);
 
-    let nullAnswers = [];
-    for(let i = 0 ;i<10;i++) {
-      nullAnswers.push(null);
-    }
-    try{
-      for(let i = 1;i<=3;i++) {
-        this.playerAnswerService.playerSubmitAnswers("round"+i, {
-          answers: nullAnswers
-        }, function(){})
-      }
-  }
-  catch(err){
-    console.log(err);
-  }
-
-
-
-  
-
+    //console.log(this.playerNameArray);
+    //console.log(this.name);
     this.presentConfirm();
   }
 
 
   submitTeamName(){
     try{
-      this.playerAnswerService.getTeamName({teamName: this.name})
+      this.playerAnswerService.getTeamName({teamName: this.playerNameArray})
     }
     catch{
       console.log("Problem HERE");

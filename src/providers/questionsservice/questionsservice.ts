@@ -26,7 +26,7 @@ export class QuestionsserviceProvider {
     var rounds = ["round1", "round2","round3"];
     var roundquestions = [triviaData.firstroundquestions, triviaData.secondroundquestions, triviaData.thirdroundquestions];
     var roundanswers = [triviaData.firstroundanswers,triviaData.secondroundanswers,triviaData.thirdroundanswers];
-    var questions = ["question1","question2","question3","question4","question5","question6","question7","question8","question9","question10","bonus"];
+    var questions = ["question1","question2","question3","question4","question5","question6","question7","question8","question9","question10","question11"];
     for (var i = 0; i < 3; i++) {
       for (var j = 0; j < questions.length; j++) {
         database.ref(date+"/admin/" + rounds[i]+"/" +questions[j]).set({

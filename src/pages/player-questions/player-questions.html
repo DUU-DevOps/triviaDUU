@@ -98,6 +98,14 @@
       </ion-item>
       <br>
 
+      <ion-item> Bonus Question </ion-item>
+
+      <ion-item>
+        <ion-label floating>Bonus Answer</ion-label>
+        <ion-input [(ngModel)]="answerbonusroundone" name="answerbonusroundone"></ion-input>
+      </ion-item>
+      <br>
+
       <button ion-button type="submit" block (click) = goToPlayerSuccessR1()>Submit Round 1 Answers</button>
 <!--  -->
 <br>
@@ -184,9 +192,16 @@
       <ion-input [(ngModel)]="answertenroundtwo" name="answertenroundtwo"></ion-input>
   </ion-item>
   <br>
+  
+  <ion-item> Bonus Question </ion-item>
+
+  <ion-item>
+    <ion-label floating>Bonus Answer</ion-label>
+    <ion-input [(ngModel)]="answerbonusroundtwo" name="answerbonusroundtwo"></ion-input>
+  </ion-item>
+  <br>
+
   <button ion-button type="submit" block (click) = goToPlayerSuccessR2()>Submit Round 2 Answers</button>
-
-
  <!--  -->
   <br>
   <br>
@@ -274,7 +289,13 @@
     </ion-item>
     <br>
 
+    <ion-item> Bonus Question </ion-item>
 
+    <ion-item>
+      <ion-label floating>Bonus Answer</ion-label>
+      <ion-input [(ngModel)]="answerbonusroundthree" name="answerbonusroundthree"></ion-input>
+    </ion-item>
+    <br>
 
     <button ion-button type="submit" block (click) = goToPlayerSuccessR3()>Submit Round 3 Answers</button>
 

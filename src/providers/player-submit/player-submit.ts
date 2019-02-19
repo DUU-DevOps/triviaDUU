@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, SystemJsNgModuleLoader } from '@angular/core';
 
 import { playerTriviaNight } from '../../models/playerTriviaNight';
 import * as firebase from 'firebase/app';
@@ -34,6 +34,7 @@ export class PlayerSubmitProvider {
   
 
 myTeamName;
+myTeamInfo;
 
 playerSubmitAnswers(roundID: string, triviaData: playerTriviaNight, callback: Function
 ) {
@@ -44,9 +45,9 @@ playerSubmitAnswers(roundID: string, triviaData: playerTriviaNight, callback: Fu
   var currDate = mm + "-" + dd + "-" + yyyy;
   var database = firebase.database();
   var roundanswers = triviaData.answers;
-  var questions = ["question1","question2","question3","question4","question5","question6","question7","question8","question9","question10"];
+  var questions = ["question1","question2","question3","question4","question5","question6","question7","question8","question9","question10","question11"];
   console.log("Round Answers are: " + roundanswers)
-  this.myTeamName = this.myTeamName.replace(/\ /g,"-");;
+  this.myTeamName = this.myTeamName.trim().replace(/\ /g,"-").toLowerCase();
   
   for (var j = 0; j < questions.length; j++) {
       //console.log(date+"/teams/" + "team-name/" + rounds[i] + "/" + questions[j])
@@ -68,7 +69,13 @@ playerSubmitAnswers(roundID: string, triviaData: playerTriviaNight, callback: Fu
           round1Init = true;
         }
       });
-      
+      var netIDsArr = this.myTeamInfo.slice(0, (this.myTeamInfo.length-1))
+      for (var k=0; k<(this.myTeamInfo.length-1); k++){
+        database.ref(currDate+"/teams/" + this.myTeamName + "/netIDs/").set({
+          netID: netIDsArr.join(",")
+        });
+      } 
+
       if (! round1Init){
         database.ref(currDate+"/teams/" + this.myTeamName).update({
           "round1score" : 0
@@ -102,9 +109,11 @@ playerSubmitAnswers(roundID: string, triviaData: playerTriviaNight, callback: Fu
 }
 
 getTeamName(triviaData: netIDTeamName){
-  this.myTeamName = triviaData.teamName;
-
-  
+  this.myTeamInfo = triviaData.teamName;
+  var length = this.myTeamInfo.length
+  this.myTeamName = this.myTeamInfo[length-1];
+  //console.log("FULL TEAM INFO: " + this.myTeamInfo)
+  console.log("TEAM NAME: " + this.myTeamName)
 }
 
 
