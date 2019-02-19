@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
-import { GameOverPage } from '../game-over/game-over';
 import { playerTriviaNight } from '../../models/playerTriviaNight';
 import { PlayerSubmitProvider } from '../../providers/player-submit/player-submit';
 import { SubmitsuccessPage } from '../submitsuccess/submitsuccess';
-import { triviaNight } from '../../models/triviaNight';
 
 /**
  * Generated class for the PlayerQuestionsPage page.

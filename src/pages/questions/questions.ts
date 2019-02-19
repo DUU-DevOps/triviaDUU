@@ -1,10 +1,6 @@
-
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, TabHighlight } from 'ionic-angular';
-import { FormBuilder, FormArray, FormGroup, Validators } from '@angular/forms';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { SubmitsuccessPage } from '../submitsuccess/submitsuccess';
-import { Injectable } from '@angular/core';
-import firebase from '@ionic-native/firebase'
 import { QuestionsserviceProvider } from '../../providers/questionsservice/questionsservice';
 import { triviaNight } from '../../models/triviaNight';
 /**
@@ -97,7 +93,7 @@ export class QuestionsPage {
     public thirdroundquestions : Array<String>;
     public thirdroundanswers : Array<String>;
     public triviaData:triviaNight;
-    public date: Date;
+    public date: string;
 
   constructor(public questionsService: QuestionsserviceProvider, public loadCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
     
@@ -193,11 +189,8 @@ export class QuestionsPage {
     ]
 
     try{
-      let year = this.date.getFullYear;
-      let month = this.date.getMonth;
-      let day = this.date.getDay;
-      let newDate = month + "-" + day + "-" + year;
-      this.questionsService.submitQuestions(newDate, {
+
+      this.questionsService.submitQuestions(this.date, {
         firstroundanswers: this.firstroundanswers,
         firstroundquestions: this.firstroundquestions,
         secondroundanswers : this.secondroundanswers,

@@ -5,7 +5,6 @@ import { AlertController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { LetsplayPage } from '../letsplay/letsplay';
 import { PlayerSubmitProvider } from '../../providers/player-submit/player-submit';
-import { netIDTeamName } from '../../models/netIDTeamName';
 
 
 
@@ -116,9 +115,25 @@ export class TeamCreatePage {
         this.playerNameArray.pop();
       }
     }
+
+    let nullAnswers = [];
+    for(let i = 0 ;i<10;i++) {
+      nullAnswers.push(null);
+    }
+    try{
+      for(let i = 1;i<=3;i++) {
+        this.playerAnswerService.playerSubmitAnswers("round"+i, {
+          answers: nullAnswers
+        }, function(){})
+      }
+  }
+  catch(err){
+    console.log(err);
+  }
+
+
+
   
-    console.log(this.playerNameArray);
-    console.log(this.name);
 
     this.presentConfirm();
   }
