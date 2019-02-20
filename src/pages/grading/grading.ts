@@ -108,7 +108,10 @@ export class GradingPage {
               });
             }
             else {
-              answersToBeReviewed.push([questionNum, teams.get(currName)[questionNum], currName.replace(/-/g, " ")]);
+              var currAns = teams.get(currName)[questionNum];
+              if (currAns !== ""){
+                answersToBeReviewed.push([questionNum, teams.get(currName)[questionNum], currName.replace(/-/g, " ")]);
+              }
             }
           }
         }
