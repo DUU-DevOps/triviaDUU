@@ -76,6 +76,10 @@ export class CommitteeOptionsPage {
       )  
     
     }
+
+    viewStandings(){
+      window.open("https://duu-devops.github.io/leaderboard/", '_blank');
+    }
     
 
   
