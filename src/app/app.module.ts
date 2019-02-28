@@ -25,6 +25,7 @@ import { LetsplayPage } from '../pages/letsplay/letsplay';
 import { GameOverPage } from '../pages/game-over/game-over';
 import { ReviewAnswersPage } from '../pages/review-answers/review-answers';
 import { PlayerSubmitProvider } from '../providers/player-submit/player-submit';
+import { LeaderboardPage } from '../pages/leaderboard/leaderboard';
 
 
 const config = {
@@ -49,7 +50,8 @@ const config = {
     LetsplayPage,
     GameOverPage,
     GradingPage,
-    ReviewAnswersPage
+    ReviewAnswersPage,
+    LeaderboardPage
 
   ],
   imports: [
@@ -72,7 +74,8 @@ const config = {
     LetsplayPage,
     GameOverPage,
     GradingPage,
-    ReviewAnswersPage
+    ReviewAnswersPage,
+    LeaderboardPage
 
   ],
   providers: [

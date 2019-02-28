@@ -4,6 +4,7 @@ import { QuestionsPage } from '../questions/questions';
 import * as firebase from 'firebase/app';
 import { ModalController } from 'ionic-angular';
 import { GradingPage } from '../grading/grading';
+import { LeaderboardPage } from '../leaderboard/leaderboard';
 
 /**
  * Generated class for the CommitteeOptionsPage page.
@@ -38,7 +39,9 @@ export class CommitteeOptionsPage {
     
   } 
 
-
+  goToLeaderboard() {
+    this.navCtrl.push(LeaderboardPage);
+  }
 
   toggleTriviaOn() {
     var today = new Date();
@@ -77,9 +80,7 @@ export class CommitteeOptionsPage {
     
     }
 
-    viewStandings(){
-      window.open("https://duu-devops.github.io/leaderboard/", '_blank');
-    }
+
     
 
   
