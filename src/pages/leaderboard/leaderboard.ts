@@ -57,6 +57,7 @@ export class LeaderboardPage {
   }
   var db = firebase.database();
     var date = this.mm + "-" + this.dd + "-" + this.yyyy;
+    //var date = '3-4-2019'
     console.log(date);
 
     var dbRef = db.ref(date + "/teams");
