@@ -120,15 +120,15 @@ export class PlayerQuestionsPage {
     const canLeave = new Promise<Boolean>(resolve => resolveLeaving = resolve);
     const alert = this.alertCtrl.create({
       title: 'Confirm Leave',
-      message: 'Please do not leave the page during trivia!',
+      message: 'Please do not leave the page during trivia! Please ignore this message at the end of round 3.',
       buttons: [
         {
-          text: 'Leave Anyway',
+          text: 'Leave',
           role: 'cancel',
           handler: () => resolveLeaving(true)
         },
         {
-          text: 'Okay',
+          text: 'Stay',
           handler: () => resolveLeaving(false)
         }
       ]
